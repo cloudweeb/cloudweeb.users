@@ -1,0 +1,23 @@
+---
+
+- name: Converge
+  hosts: all
+
+  vars:
+
+    user_groups:
+      - name: consectetur
+        gid: 5000
+
+    user_users:
+      - name: consectetur
+        comment: Consecte tur
+        password: "{{ lookup('password', '/tmp/passwordfile chars=ascii_letters encrypt=sha256_crypt') }}"
+
+    user_resources:
+      - name: consectetur
+        path: ~/Documents
+
+  roles:
+
+    - role: cloudweeb.users
