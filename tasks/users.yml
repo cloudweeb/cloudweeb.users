@@ -28,3 +28,15 @@
   with_items: "{{ user_users }}"
   tags:
     - user-users-no-gid
+
+- name: users | additional resources
+  file:
+    src: "{{ item.src | default(omit) }}"
+    path: "{{ item.path }}"
+    state: "{{ item.state | default('directory') }}"
+    mode: "{{ item.mode | default(omit) }}"
+    recurse: "{{ item.recurse | default(omit) }}"
+    force: "{{ item.force | default(omit) }}"
+  become: true
+  become_user: "{{ item.name }}"
+  loop: "{{ user_resources }}"

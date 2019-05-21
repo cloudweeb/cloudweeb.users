@@ -31,6 +31,13 @@ None
 * `user_users.{n}.system`: [default: `false`]: If `true`, indicates that the user created is a system user
 * `user_users.{n}.state`: [default: `present`]: Whether the user should be present or not on the remote host
 * `user_users.{n}.remove`: [default: `false`]: When used with `state=absent`, behavior is as with `userdel --remove`
+* `user_resources.{n}.name`: [required]: name of the files/directory owner
+* `user_resources.{n}.src`: [optional]: Path of the file to link to.
+* `user_resources.{n}.path`: [required]: path/destination file that want to be created
+* `user_resources.{n}.state`: [default: present]:
+* `user_resources.{n}.mode`: [optional]: files/directory permission mode
+* `user_resources.{n}.recurse`: [optional]: Recursively set the specified file attributes on directory contents
+* `user_resources.{n}.force`: [optional]: Force the creation of the symlinks
 
 ## Dependencies
 
